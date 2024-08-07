@@ -7,15 +7,15 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { Calendar } from "@/components/ui/calendar"
+} from "@/components/ui/sheet" 
 import { useEffect, useState } from "react" 
 import globalApi from '@/app/_services/global-api';
 import { Button } from "@/components/ui/button";
 import { BookedSlot, BusinessByCategory, GetBookedSlotResponse } from "@/app/_services/types";
-import { useSession, useUser } from "@descope/nextjs-sdk/client"; 
+import { useUser } from "@descope/nextjs-sdk/client"; 
 import { toast } from "sonner";
 import moment from "moment";
+import { Calendar } from "@/components/ui/calendar";
 
 interface BookingProps {
   children: React.ReactNode
