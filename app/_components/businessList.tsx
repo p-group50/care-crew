@@ -24,13 +24,13 @@ export const BusinessList = ({ businessList, title }: BusinessListProps) => {
         { businessList?.length > 0 ? businessList.map((business, index) => (
           // route to business details page when user clicks on card 
           <Link
-            href={'/details/'+business.id}
+            href={'/details/'+business?.id}
             key={index} 
             className="rounded-lg shadow hover:shadow-lg hover:shadow-primary shadow-primary transition-all ease-in-out duration-300"
           >
             {/* service ad image */}
             <Image 
-              src={business?.images[0].url} 
+              src={business?.images[0]?.url} 
               alt=''
               width={300}
               height={120}
@@ -40,16 +40,16 @@ export const BusinessList = ({ businessList, title }: BusinessListProps) => {
             <div className="px-3">
               <div className="flex justify-between items-center my-2">
                 <h3 className='font-bold text-primary'>
-                  { business.name }
+                  { business?.name }
                 </h3>
                 <p className='text-sm text-gray-600 bg-orange-300 px-1 py-[1px] rounded-full text-center'>
-                  {business.category.name}
+                  {business.category?.name}
                 </p>
               </div>
 
-              <p className="text-primary font-semibold">{business.contactPerson}</p>
-              <p className="text-gray-500 text-sm">{business.email}</p>
-              <p className="text-gray-500 text-sm">{business.address}</p>
+              <p className="text-primary font-semibold">{business?.contactPerson}</p>
+              <p className="text-gray-500 text-sm">{business?.email}</p>
+              <p className="text-gray-500 text-sm">{business?.address}</p>
             </div>
 
             <Button className='w-full mt-2 rounded-t-none relative'>

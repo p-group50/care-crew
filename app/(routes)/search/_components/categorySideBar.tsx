@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { Settings2 } from 'lucide-react';
 
 export const CategorySideBar = () => {
-
+// UPDATED
   const [ categoryList, setCategoryList ] = useState<Category[]>([]); 
   const [ selectedCategory, setSelectedCategory ] = useState<any>();
 
@@ -38,9 +38,9 @@ export const CategorySideBar = () => {
 
   return (
     <div className=''>
-      <div className="flex flex-row items-center justify-center gap-4 border border-primary rounded w-6 md:w-36 bg-primary/20 mb-3">
-        <Settings2 className='text-primary'/>
-        <h2 className='hidden md:block font-bold text-lg text-primary'>Category</h2>
+      <div className="flex flex-row items-center justify-center gap-4 border-b border-b-primary w-6 md:w-36  mb-3">
+        <Settings2 className=''/>
+        <h2 className='hidden md:block font-semibold text-lg'>Category</h2>
       </div>
 
       {/* fetch category list from backend */}

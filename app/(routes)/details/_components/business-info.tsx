@@ -1,11 +1,13 @@
 import { BusinessById } from "@/app/_services/types"
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Share2Icon, Timer, User2 } from "lucide-react";
+import { Mail, MapPin, Phone, Share2Icon, Timer, User2 } from "lucide-react";
 import Image from "next/image"
 
 interface BusinessInfoProps {
   businessById?: BusinessById; 
 }
+
+// UPDATED
 
 export const BusinessInfo = ({ businessById }: BusinessInfoProps) => {
   // console.log("bizz : ", businessById)
@@ -34,25 +36,50 @@ export const BusinessInfo = ({ businessById }: BusinessInfoProps) => {
             {businessById.address}
           </p>
 
-          <p className="flex gap-2 text-lg text-gray-500">
+          <a href={`mailto:${businessById.email}`} 
+            className="flex gap-2 text-lg text-gray-500">
             <Mail />
             {businessById.email}
-          </p>
+          </a>
         </div>
         <div className="flex flex-col gap-5 items-end">
+
+
           <Button>
-            <Share2Icon/>
+          <a href={`tel:${businessById.contactPerson}`} 
+            className="flex gap-2"
+            >
+            <Phone /> call
+          </a>
           </Button>
 
-          <div className="flex gap-2 text-primary">
-            <User2/>
+          {/* <a href={`tel:${businessById.contactPerson}`} 
+            className="flex gap-2 text-primary"
+            >
+            <Phone />
             {businessById.contactPerson}
-          </div>
+          </a> */}
 
-          <div className="flex gap-2 text-gray-500">
+          <Button>
+          <a href={`mailto:${businessById.email}`} 
+            className="flex gap-2 text-lg ">
+            <Mail />
+              send email
+          </a>
+          </Button>
+
+          {/* <a href={`mailto:${businessById.email}`} 
+            className="flex gap-2 text-lg text-gray-500">
+            <Mail />
+            {businessById.email}
+          </a> */}
+
+
+
+          {/* <div className="flex gap-2 text-gray-500">
             <Timer />
-            {/* Available 8:00pm : 10:00pm */}
-          </div>
+            Available 8:00pm : 10:00pm
+          </div> */}
         </div>
       </div>
     </div>

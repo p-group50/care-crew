@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { BusinessByCategory } from '../_services/types';
 import Link from 'next/link';
-
+import { Phone } from 'lucide-react';
+// UPDATED
 interface BusinessListProps {
   businessListByCategories: BusinessByCategory[];
   title?: string;
@@ -19,7 +20,7 @@ export const BusinessListByCategory = ({ businessListByCategories, title }: Busi
         {title}
       </p>
 
-      <div className="grid grid-cols-2 gap-[8rem] md:grid-cols-3 lg:grid-cols-4 mt-5 place-items-center">
+      <div className="w-full flex gap-6 flex-wrap">
         { businessListByCategories?.length > 0 ? businessListByCategories.map((businessCategory, index) => (
           <Link 
             href={'/details/'+businessCategory.id} 
@@ -37,17 +38,19 @@ export const BusinessListByCategory = ({ businessListByCategories, title }: Busi
 
             <div className="px-3 ">
               <div className="flex justify-between items-center gap-x-4 my-2">
-                <h3 className='font-bold text-primary'>
-                  { businessCategory.email } 
-                </h3>
+                <p className='font-bold text-primary'>
+                  { businessCategory.name } 
+                </p>
 
                 <p className='text-sm text-gray-600 bg-orange-300 px-3 py-1 rounded-full text-center'>
                   {businessCategory.category.name}
                 </p>
               </div>
 
-              <p className="text-primary font-semibold">
-                <a href={`tel:${businessCategory.contactPerson}`}>
+              <p className="text-primary font-semibold ">
+                <a href={`tel:${businessCategory.contactPerson}`}
+                  className='flex gap-x-2'>
+                  <Phone/>
                   {businessCategory.contactPerson}
                   </a>
                 </p>
@@ -66,12 +69,12 @@ export const BusinessListByCategory = ({ businessListByCategories, title }: Busi
         ))
         :
         // skeleton
-        [1,2,3,4,5,6,7,8].map((item, index) => (
-          <div key={index} className="w-full h-[300px] bg-slate-200 rounded-lg animate-pulse">
-
+        [1,2].map((item, index) => (
+          <div key={index} className="w-full h-[300px] bg-slate-200 rounded-lg animate-pulse flex items-center justify-center">
+            No service available
           </div>
         ))
-      };
+      }
       </div>
     </div>
   )
